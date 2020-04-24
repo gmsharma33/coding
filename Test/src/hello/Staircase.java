@@ -2,11 +2,17 @@ package hello;
 
 import java.util.Scanner;
 
+/**
+ * Print # character based on input
+ * 
+ * @author sharma
+ *
+ */
 public class Staircase {
 
 	static void staircase(int n) {
 		int spaceCount = 0;
-		for(int i = 0; i < n; i++) {
+		for (int i = 0; i < n; i++) {
 			spaceCount = n - (i + 1);
 			System.out.print(new String(new char[spaceCount]).replace("\0", " "));
 			System.out.println(new String(new char[n - spaceCount]).replace("\0", "#"));
