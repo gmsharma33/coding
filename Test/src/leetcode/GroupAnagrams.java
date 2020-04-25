@@ -10,7 +10,7 @@ public class GroupAnagrams {
 
 	public static void main(String[] args) {
 		String[] arr = { "eat", "tea", "tan", "ate", "nat", "bat" };
-		List<List<String>> res = new GroupAnagrams().groupAnagrams(arr);
+		new GroupAnagrams().groupAnagrams(arr);
 	}
 	
 	public List<List<String>> groupAnagrams(String[] strs) {
