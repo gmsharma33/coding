@@ -1,55 +1,39 @@
 package hello;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.Comparator;
+import java.io.IOException;
+import java.util.Scanner;
 
 public class Demo {
 
-	private class Inner {
-		void powerof2(int num) {
-
+	// Complete the countingValleys function below.
+	static int countingValleys(int n, String s) {
+		int count = 0, v = 0;
+		for (char c : s.toCharArray()) {
+			if (c == 'U') {
+				count++;
+			} else if (c == 'D') {
+				count--;
+			}
+			if(c == 'U' && count == 0) {
+				v++;
+			}
 		}
+		return v;
 	}
 
-	public static void main(String[] args) {
-		try {
-			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-			int num = Integer.parseInt(br.readLine().trim());
-			Object o;// Must be used to hold the reference of the instance of the class
-						// Solution.Inner.Private
+	private static final Scanner scanner = new Scanner(System.in);
 
-			// Write your code here
-			
+	public static void main(String[] args) throws IOException {
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		int n = scanner.nextInt();
+		scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
+		String s = scanner.nextLine();
+
+		int result = countingValleys(n, s);
+
+		System.out.println(String.valueOf(result));
+
+		scanner.close();
 	}
-
-	class Player {
-		String name;
-		int score;
-
-		Player(String name, int score) {
-			this.name = name;
-			this.score = score;
-		}
-	}
-
-class Checker implements Comparator<Player>{
-
-	@Override
-	public int compare(Player p1, Player p2) {
-		if(p1.score > p2.score) {
-			return -1;
-		} else if(p1.score < p2.score) {
-			return 1;
-		} else {
-			return p1.name.compareTo(p2.name);
-		}
-	}
-	
-}
 }
